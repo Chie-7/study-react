@@ -5,7 +5,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:": "run-p -c lint:*",
+    "lint:eslint": "eslint --ext .jsx,.js .",
+    "lint:prettier": "prettier --check .",
+    "fix": "run-s -c fix:eslint fix:prettier",
+    "fix:eslint": "eslint --ext .jsx,.js . --fix",
+    "fix:pretteier": "pretttier --write ."
   },
   "dependencies": {
     "next": "12.0.4",
@@ -13,7 +18,13 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "eslint": "7",
-    "eslint-config-next": "12.0.4"
+    "eslint": "^8.3.0",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1"
   }
 }
